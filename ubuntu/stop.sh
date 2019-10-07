@@ -14,4 +14,6 @@ getDockerId(){
 #containerName=`getDockerId $NAME`
 #docker exec -it $containerName /bin/bash
 #docker stop $containerName
+echo "Stopping...."
 docker rm $(docker stop $(docker ps -a -q --filter ancestor=bitcoin_ubuntu --format="{{.ID}}"))
+echo "Ready"
