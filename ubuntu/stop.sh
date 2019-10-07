@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="bitcoin-ubuntu"
+NAME="pensive_wilbur"
 
 getDockerId(){
         if [ ! "$1" ];
@@ -10,8 +10,8 @@ getDockerId(){
 	fi
 	echo `docker ps -aqf "name=$NAME"`
 }
-echo "Name=$NAME"
-containerName=`getDockerId $NAME`
-containerName=`docker ps -aqf "name=$NAME"`
-echo "Container id=$containerName"
-	docker exec -it $containerName /bin/bash
+#echo "Name=$NAME"
+#containerName=`getDockerId $NAME`
+#docker exec -it $containerName /bin/bash
+#docker stop $containerName
+docker rm $(docker stop $(docker ps -a -q --filter ancestor=bitcoin_ubuntu --format="{{.ID}}"))

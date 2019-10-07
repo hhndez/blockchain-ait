@@ -1,0 +1,1 @@
+docker run -it bitcoin_ubuntu bash
